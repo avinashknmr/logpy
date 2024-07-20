@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "logpy"
+version = "0.1.0"
+description = "A custom logger with color formating and ease of use"
+authors = ["Avinash Kanumuru <avinash.eee@gmail.com>"]
+license = "BSD"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
