@@ -16,7 +16,7 @@ class CustomFormatter(logging.Formatter):
     red = "\x1b[31;20m"
     bold_red = "\x1b[31;1m"
     reset = "\x1b[0m"
-    format = "[%(asctime)s] [%(levelname)8s] [%(name)s - %(filename)s:%(lineno)d] - %(message)s"
+    format = "[%(asctime)s] [%(levelname)-8s] [%(name)s:%(filename)s:%(lineno)d] - %(message)s"
 
     FORMATS = {
         logging.DEBUG: grey + format + reset,
@@ -35,7 +35,7 @@ class CustomFormatter(logging.Formatter):
         if self.use_color:
             formatter = logging.Formatter(log_fmt)
         else:
-            formatter = logging.Formatter("[%(asctime)s] [%(levelname)8s] [%(name)s - %(filename)s:%(lineno)d] - %(message)s")
+            formatter = logging.Formatter("[%(asctime)s] [%(levelname)-8s] [%(name)s:%(filename)s:%(lineno)d] - %(message)s")
         return formatter.format(record)
 
 class CustomLogger(logging.Logger):
@@ -62,3 +62,4 @@ class CustomLogger(logging.Logger):
             return self
         
 logging.setLoggerClass(CustomLogger)
+logger = logging.getLogger(__name__)
